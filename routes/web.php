@@ -21,8 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('booking',\App\Http\Controllers\BookingController::class);
 
-Auth::routes();
 
 Route::get('/home', function() {
     return view('home');

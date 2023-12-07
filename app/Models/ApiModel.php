@@ -58,7 +58,27 @@ class ApiModel extends Model
 
     public static function get() {
         $url = self::url(self::getRoute());
-        $response = Http::withToken(Session::token());
+        $response = Http::withToken(Session::get('apitoken'), 'Bearer')->get($url);
+        return json_decode($response->body());
+    }
+
+    public static function getOne($route) {
+        // $route must have the '/' at the beginning!
+        $url = self::url(self::getRoute().$route);
+        $response = Http::withToken(Session::get('apitoken'), 'Bearer')->get($url);
+        return json_decode($response->body());
+    }
+    public static function deleteOne($route) {
+        // $route must have the '/' at the beginning!
+        $url = self::url(self::getRoute().$route);
+        $response = Http::withToken(Session::get('apitoken'), 'Bearer')->delete($url);
+        return json_decode($response->body());
+    }
+
+    public static function getCustomRoute($path) {
+        $url = self::url(self::getRoute()).$path;
+        $response = Http::withToken(Session::get('apitoken'), 'Bearer')->get($url);
+        //dd($response);
         return json_decode($response->body());
     }
 

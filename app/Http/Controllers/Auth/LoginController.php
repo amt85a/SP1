@@ -60,7 +60,7 @@ class LoginController extends Controller
             $user = new User($credentials);
             Auth::setUser($user);
 
-            return view('home');
+            return to_route('booking.index');
         } else {
             return to_route('login');
         }

@@ -1,3 +1,20 @@
 {
+    "Bookings" : "Réservations",
+    "Booking" : "Réservation",
+    "Status" : "Status",
+    "Id" : "Identifiant",
+    "Driver" : "Conducteur",
+    "Action" : "Action",
+    "BeginDate" : "Date de début",
+    "EndingDate" : "Date de fin",
+    "CarModel" : "Modèle de véhicule",
+    "CarLicencePlate" : "Plaque d'immatriculation du véhicule",
+    "AgencyAddress" : "Adresse de l'agence",
+    "AgencyName" : "Nom de l'agence",
+    "DriverName" : "Nom du conducteur",
+    "DriverPhoneNumber" : "Numéro de téléphone du conducteur",
+    "StatusName" : "État",
+    "PathType" : "Type de trajet"
+
 
 }
