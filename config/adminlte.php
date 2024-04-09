@@ -299,6 +299,18 @@ return [
             'icon' => 'fas fa-fw fa-car',
         ],
         ['header' => 'Réserver'],
+        [
+            'text' => 'Book',
+            'route'  => 'booking.create',
+            'icon' => 'fas fa-fw fa-car',
+        ],
+        ['header' => 'Profil'],
+        [
+            'text' => 'Mon Profil',
+            'route'  => 'user.index' ,
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
 
 
     ],
@@ -359,7 +371,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -370,6 +382,11 @@ return [
                     'type' => 'css',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css',
                 ],
             ],
         ],

@@ -18,7 +18,9 @@ class ApiModel extends Model
         return strtolower(substr($childClass, strrpos($childClass, '\\')+1));
     }
     private static function url($route): string {
+        //dd(config('api.url').'/'.config('api.version').'/'.$route);
         return config('api.url').'/'.config('api.version').'/'.$route;
+
     }
 
     /**
@@ -55,6 +57,13 @@ class ApiModel extends Model
         return $response;
 
     }
+    public static function create(array $attributes = [], array $options = [])
+    {
+        $childClass = get_called_class();
+        $shortClassName = substr($childClass, strrpos($childClass, '\\') + 1);
+        $model = strtolower($shortClassName);
+        return self::postWithToken($model,$attributes);
+    }
 
     public static function get() {
         $url = self::url(self::getRoute());
@@ -76,17 +85,25 @@ class ApiModel extends Model
     }
 
     public static function getCustomRoute($path) {
-        $url = self::url(self::getRoute()).$path;
+        $url = self::url($path);
         $response = Http::withToken(Session::get('apitoken'), 'Bearer')->get($url);
-        //dd($response);
         return json_decode($response->body());
     }
 
     public static function post($data) {
         $url = self::url(self::getRoute());
-        $response = Http::withToken(Session::token())->post($url, $data);
+        $response = Http::withToken(Session::get('apitoken'))->post($url, $data);
+       // dd($response);
         return $response->status();
 
+
     }
+    public static function postWithToken($route, $formParams)
+    {
+        $response = Http::withToken(Session::get('apitoken'))->post(config('api.url').'/'.config('api.version').'/'.$route,$formParams);
+        //dd($response);
+        return json_decode($response->body());
+    }
+
 
 }

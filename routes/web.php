@@ -22,8 +22,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('booking',\App\Http\Controllers\BookingController::class);
+Route::resource('user', \App\Http\Controllers\UserController::class);
 
 
 Route::get('/home', function() {
     return view('home');
 })->name('home');
+
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');

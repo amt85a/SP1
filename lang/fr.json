@@ -14,7 +14,12 @@
     "DriverName" : "Nom du conducteur",
     "DriverPhoneNumber" : "Numéro de téléphone du conducteur",
     "StatusName" : "État",
-    "PathType" : "Type de trajet"
+    "PathType" : "Type de trajet",
+    "Brand" : "Marque",
+    "Model" : "Modèle",
+    "Logo" : "Logo",
+    "Choice" : "Choix",
+    "NbSeat" : "Nombre de sièges"
 
 
 }

@@ -25,7 +25,7 @@
                             <b>{{__('CarModel')}} : &nbsp;</b><span class="float-right">{{$booking[0]->model}}</span>
                         </li>
                         <li class="list-group-item">
-                            <b>{{__('CarLicencePlate')}} : &nbsp;</b><span class="float-right">{{$booking[0]->licencePlate}}</span>
+                            <b>{{__('CarLicencePlate')}} : &nbsp;</b><span class="float-right">{{$booking[0]->licensePlate}}</span>
                         </li>
                         <li class="list-group-item">
                             <b>{{__('AgencyAddress')}} : &nbsp;</b><span class="float-right">{{$booking[0]->agencyPostalCode.$booking[0]->agencyLocation}}</span>
