@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -43,4 +45,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+        private static function url($route): string {
+        //dd(config('api.url').'/'.config('api.version').'/'.$route);
+        return config('api.url').'/'.config('api.version').'/'.$route;
+
+    }
+
+        public static function getCustomRoute($path) {
+        $url = self::url($path);
+        $response = Http::withToken(Session::get('apitoken'), 'Bearer')->get($url);
+        return json_decode($response->body());
+    }
 }

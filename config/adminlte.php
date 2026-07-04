@@ -307,7 +307,7 @@ return [
         ['header' => 'Profil'],
         [
             'text' => 'Mon Profil',
-            'route'  => 'user.index' ,
+            'route'  => 'user.index',
             'icon' => 'fas fa-fw fa-user',
         ],
 

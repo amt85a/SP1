@@ -3,7 +3,7 @@
 @section('title', env('APP_NAME'))
 
 @section('content_header')
-    <h1 class="m-0 text-dark">{{__("Bookings")}}</h1>
+    <h1 class="m-0 text-dark">{{__("Book")}}</h1>
 @stop
 @php
     $heads=[

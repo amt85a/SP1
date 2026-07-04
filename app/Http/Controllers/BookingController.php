@@ -10,6 +10,7 @@ use App\Models\CarModel;
 use App\Models\User;
 use App\Models\UserDrivers;
 use MongoDB\Driver\Session;
+use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Driver\Driver;
 use function Laravel\Prompts\alert;
 
@@ -32,6 +33,7 @@ class BookingController extends Controller
     public function create()
     {
         $agencies = Agency::get();
+        //dd($agencies);
         $carModels = CarModel::getCustomRoute('carModel');
         $drivers = UserDrivers::getCustomRoute('user/drivers');
         return view('booking.create', ['agencies' => $agencies, 'carModels' => $carModels, 'drivers' => $drivers]);

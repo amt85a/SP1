@@ -57,9 +57,12 @@ class LoginController extends Controller
         if ($response->successful()) {
             $token = $response->object()->success->token;
             Session::put('apitoken', $token);
+            Session::put('email', $credentials['email']);
             $user = new User($credentials);
             Auth::setUser($user);
-
+            //$userEmail = $credentials['email'];
+            //putenv("MAIL_FROM_ADDRESS=$userEmail");
+            //dd(getenv("MAIL_FROM_ADDRESS"));
             return to_route('booking.index');
         } else {
             return to_route('login');

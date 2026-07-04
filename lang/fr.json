@@ -1,6 +1,7 @@
 {
     "Bookings" : "Réservations",
     "Booking" : "Réservation",
+    "Book" : "Réserver",
     "Status" : "Status",
     "Id" : "Identifiant",
     "Driver" : "Conducteur",
